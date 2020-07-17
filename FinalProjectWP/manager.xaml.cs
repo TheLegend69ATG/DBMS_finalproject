@@ -91,34 +91,19 @@ namespace FinalProjectWP
             var gd = new SqlParameter("@gd", Gendebox.Text);
              var slr = new SqlParameter("@slr",float.Parse( Salarybox.Text));
             var pp = new SqlParameter("@pp", vs);
-            //try
-            //{
+            try
+            {
                 laboratory.Database.ExecuteSqlCommand("EXECUTE dbo.sp_AddMember @name,@pos,@dep,@by,@email,@phone,@gd,@slr,@pp"
                      , name, pos, dep, by, email, phone, gd, slr, pp);
                 listmember = laboratory.MemberInfo.FromSqlRaw("SELECT * FROM dbo.MemberInfo").ToList();
                 table_member.ItemsSource = listmember;
                 table_member.Items.Refresh();
-            //}
-            //catch (microsoft.data.sqlclient.sqlexception exception)
-            //{
-            //    messagebox.show("you may have entered existed username, email and phone or you have not chosen your profile picture!", "error", messageboxbutton.ok);
-            //    return;
-            //    //for (int i = 0; i < exception.errors.count; i++)
-            //    //{
-
-            //    //    messagebox.show("index #" + i + "\n" +
-            //    //        "source: " + exception.errors[i].source + "\n" +
-            //    //        "number: " + exception.errors[i].number.tostring() + "\n" +
-            //    //        "state: " + exception.errors[i].state.tostring() + "\n" +
-            //    //        "class: " + exception.errors[i].class.tostring() + "\n" +
-            //    //        "server: " + exception.errors[i].server + "\n" +
-            //    //        "message: " + exception.errors[i].message + "\n" +
-            //    //        "procedure: " + exception.errors[i].procedure + "\n" +
-            //    //        "linenumber: " + exception.errors[i].linenumber.tostring());
-            //    //}
-
-            //    return;
-            //}
+            }
+            catch (Microsoft.Data.SqlClient.SqlException  a)
+            {
+                MessageBox.Show(a.Message, "error", MessageBoxButton.OK);
+                return;
+            }
 
         }
         private void equtbn_add_Click(object sender, RoutedEventArgs e)
