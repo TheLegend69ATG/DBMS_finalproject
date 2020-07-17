@@ -1,5 +1,5 @@
 # Database management system project
-** Member: **
+**Member:**
           -Bui Si Quan
           -Huynh Quang Duy
           -Phan Nam Khoa
