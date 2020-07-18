@@ -149,6 +149,13 @@ namespace FinalProjectWP
                     Lexperiments[i].Participation.ElementAt(j).Mem = abc[m++];
                 }
             }
+            if(member.Id=="LM01")
+            {
+                manager manager = new manager();
+                manager.Show();
+            }
+            
+
         }
         private MemberInfo member { get; set; }
         private List<Position> position { get; set; }
@@ -178,11 +185,19 @@ namespace FinalProjectWP
                     Lexperiments[i].Participation.Remove(Lexperiments[i].Participation.ElementAt(j));
                 }
             }
-            var id = new SqlParameter("@id", member.Id);
-            var e = new SqlParameter("@e", member.Email);
-            var p = new SqlParameter("@p", member.Phone);
+            try
+            {
+                var id = new SqlParameter("@id", member.Id);
+                var e = new SqlParameter("@e", member.Email);
+                var p = new SqlParameter("@p", member.Phone);
 
-            laboratory.Database.ExecuteSqlCommand("EXECUTE dbo.sp_EditEmailandPhone @id,@e,@p", id, e, p);
+                laboratory.Database.ExecuteSqlCommand("EXECUTE dbo.sp_EditEmailandPhone @id,@e,@p", id, e, p);
+            }
+            catch (Microsoft.Data.SqlClient.SqlException a)
+            {
+                MessageBox.Show(a.Message, "error", MessageBoxButton.OK);
+                return;
+            }
             //laboratory.SaveChanges();
             Login login = new Login();
             login.Show();
