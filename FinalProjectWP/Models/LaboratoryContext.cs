@@ -30,8 +30,8 @@ namespace FinalProjectWP.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-               // optionsBuilder.UseSqlServer("Server=192.168.137.1;Database=Laboratory;User ID=quan;Password=123;");//Trusted_Connection=True;
-                optionsBuilder.UseSqlServer("Server=HOCHUTICH;Database=Laboratory;Trusted_Connection=True;");//
+                optionsBuilder.UseSqlServer("Server=192.168.137.1;Database=Laboratory;User ID=quanbui;Password=123;");//Trusted_Connection=True;
+                //optionsBuilder.UseSqlServer("Server=HOCHUTICH;Database=Laboratory;Trusted_Connection=True;");//
 
             }
         }

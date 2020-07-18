@@ -166,8 +166,23 @@ namespace FinalProjectWP
         private List<Participation> Participation { get; set; }
 
 
-        private void closebtn_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        private void closebtn_PreviewMouseDown(object sender, MouseButtonEventArgs bc)
         {
+            for (int i = 0; i < Lexperiments.Count(); i++)
+            {
+                Lexperiments[i].Leader = laboratory.MemberInfo.First(x => x.Id == Lexperiments[i].LeaderId);
+                Lexperiments[i].Finished = laboratory.Finished.First(x => x.ExpId == Lexperiments[i].Id);
+                for (int j = 0; j < Lexperiments[i].Participants; j++)
+                {
+                    Lexperiments[i].Participation.Add(new Participation());
+                    Lexperiments[i].Participation.Remove(Lexperiments[i].Participation.ElementAt(j));
+                }
+            }
+            var id = new SqlParameter("@id", member.Id);
+            var e = new SqlParameter("@e", member.Email);
+            var p = new SqlParameter("@p", member.Phone);
+
+            laboratory.Database.ExecuteSqlCommand("EXECUTE dbo.sp_EditEmailandPhone @id,@e,@p", id, e, p);
             //laboratory.SaveChanges();
             Login login = new Login();
             login.Show();

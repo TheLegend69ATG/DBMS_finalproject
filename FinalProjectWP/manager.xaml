@@ -45,7 +45,6 @@
                         </DataGrid>
                         <TextBox Margin="790,0,-3,527" x:Name="searchbox"/>
                         <Button Margin="730,0,268,547" Content="Find" x:Name="searchbtn" Click="searchbtn_Click"/>
-                        <TextBlock Text="ID" Margin="730,54,268,486" FontSize="14"/>
                         <TextBlock Text="Gender" Margin="730,250,268,290" FontSize="14"/>
                         <TextBlock Text="Salary" Margin="730,279,268,261" FontSize="14"/>
                         <TextBlock Text="Phone" Margin="730,222,268,318" FontSize="14"/>
@@ -55,7 +54,6 @@
                         <TextBlock Text="Dep" Margin="730,138,268,402" FontSize="14"/>
                         <TextBlock Text="Name" Margin="730,82,268,458" FontSize="14"/>
                         <TextBlock Text="Image" Margin="730,307,268,233" FontSize="14"/>
-                        <TextBox x:Name="IDbox" Margin="790,54,-3,493"/>
                         <TextBox x:Name="Salarybox" Margin="790,279,-3,268"/>
                         <TextBox x:Name="Gendebox" Margin="790,248,-3,299"/>
                         <TextBox x:Name="Phonebox" Margin="790,222,-3,325"/>
